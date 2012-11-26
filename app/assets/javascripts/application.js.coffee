@@ -41,7 +41,12 @@ class ListingView
 
 listingModel = {
 	getItems: (term, page, cb) ->
-		console.log("Get them!")
+		$.ajax({
+			url: 'listing/search',
+			type: 'post',
+			data: {searchTerm: term},
+			success: cb
+		})
 }
 
 
