@@ -10,4 +10,25 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap.min
+ *= require bootstrap-responsive.min
 */
+
+header {
+	.navbar-search {
+		input { width: 250px; }
+		.btn { margin-top: 0;}
+	}
+}
+
+.listings * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.listings {
+	position: fixed;
+	top: 41px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
