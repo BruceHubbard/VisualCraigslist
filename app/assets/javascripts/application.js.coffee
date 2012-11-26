@@ -54,7 +54,6 @@ listingModel = {
 		cb(mockItems)
 }
 
-
 $ ->
 	currentListingView = new ListingView()
 
@@ -70,6 +69,12 @@ $ ->
 			console.log(data)
 			currentListingView = new ListingView(data)
 		)
+	)
+
+	$('section.body').on('mouseover', '.listing .info .thumbs img', () ->
+		new_url = $(@).attr('src').replace("/thumb", "")
+		listing = $(@).closest('.listing')
+		listing.find('a img').attr('src', new_url)
 	)
 
 
