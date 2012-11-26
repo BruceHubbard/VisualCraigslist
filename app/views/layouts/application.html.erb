@@ -31,18 +31,15 @@
 	</section>
 
 <script id="listingTpl" type="text/x-handlebars-template">
-  {{#pics}}
-  	<a href="{{../link}}">
-  		<span class="title">{{../title}}</span>
-  		<img src="{{.}}"/>
+  	<a href="{{link}}">
+  		<span class="title">{{title}}</span>
+		  {{#if pics}}
+		  		<img src="{{../pics.0.}}"/>
+		  {{/if}}
+		  {{^pics}}
+		  		<img src="assets/no-photo.jpeg"/>
+		  {{/pics}}
   	</a>
-  {{/pics}}
-  {{^pics}}
-  	<a href="{{../link}}">
-  		<span class="title">{{../title}}</span>
-  		<img src="assets/no-photo.jpeg"/>
-  	</a>
-  {{/pics}}
 </script>
 
 </body>
