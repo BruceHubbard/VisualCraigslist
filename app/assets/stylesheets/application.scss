@@ -24,6 +24,8 @@ header {
 .listings * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 .listings {
+	display: none;
+	background-color: grey;
 	position: fixed;
 	top: 41px;
 	bottom: 0;
@@ -31,4 +33,29 @@ header {
 	right: 0;
 	overflow-y: auto;
 	overflow-x: hidden;
+
+	a {
+		position: relative;
+		display: inline-block;
+		min-width: 150px;
+		min-height: 150px;
+
+		span.title {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			background-color: black;
+			display: none;
+		}
+	}
+
+	a:hover {
+		span.title { display: inline;}
+	}
+
+	img {
+		max-width: 245px;
+		max-height: 245px;
+	}
 }

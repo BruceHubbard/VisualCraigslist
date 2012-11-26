@@ -22,8 +22,24 @@
 			</div><!-- /navbar-inner -->
 		</div>
 	</header>
+	<section class="body">
+		<%= yield %>
+	</section>
 
-<%= yield %>
+<script id="listingTpl" type="text/x-handlebars-template">
+  {{#pics}}
+  	<a href="{{../link}}">
+  		<span class="title">{{../title}}</span>
+  		<img src="{{.}}"/>
+  	</a>
+  {{/pics}}
+  {{^pics}}
+  	<a href="{{../link}}">
+  		<span class="title">{{../title}}</span>
+  		<img src="assets/no-photo.jpeg"/>
+  	</a>
+  {{/pics}}
+</script>
 
 </body>
 </html>
