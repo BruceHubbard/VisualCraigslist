@@ -31,15 +31,26 @@
 	</section>
 
 <script id="listingTpl" type="text/x-handlebars-template">
-  	<a href="{{link}}">
-  		<span class="title">{{title}}</span>
+	<div class="listing">
+	  	<a href="{{link}}">
 		  {{#if pics}}
 		  		<img src="{{../pics.0.}}"/>
 		  {{/if}}
 		  {{^pics}}
 		  		<img src="assets/no-photo.jpeg"/>
 		  {{/pics}}
-  	</a>
+	  	</a>
+	  	<div class="info-block">
+	  		<div class="info">
+		  		<div class="title">{{title}}</div>
+		  		<div class="thumbs">
+		  		{{#pics}}
+		  			<img src="{{thumbnail .}}"/>
+		  		{{/pics}}
+		  		</div>
+	  		</div>
+	  	</div>
+	</div>
 </script>
 
 </body>

@@ -34,29 +34,44 @@ header {
 	right: 0;
 	overflow-y: auto;
 	overflow-x: hidden;
+	padding-bottom: 50px;
 
-	a {
+	.listing { 
+		display: inline-block; 
 		position: relative;
-		display: inline-block;
-		min-width: 150px;
-		min-height: 150px;
 
-		span.title {
-			position: absolute;
-			left: 0;
+		a {
+			display: inline-block;
+			min-width: 150px;
+			min-height: 150px;
+		}
+
+		img {
+			max-width: 245px;
+			max-height: 245px;
+		}	
+		
+		.info-block {
+			position: relative;
+			display: none;
 			bottom: 0;
 			width: 100%;
-			background-color: black;
-			display: none;
-		}
+			z-index: 5000;
+
+			.info {
+				position: absolute;
+				background-color: black;
+				padding: 5px;
+				color: white;
+				width: 100%;
+				top: 0;
+				z-index: 5000;
+			}
+		}	
 	}
 
-	a:hover {
-		span.title { display: inline;}
+	.listing:hover {
+		.info-block { display: block; }
 	}
 
-	img {
-		max-width: 245px;
-		max-height: 245px;
-	}
 }
