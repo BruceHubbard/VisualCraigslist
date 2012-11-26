@@ -40,11 +40,11 @@ class ListingView
     			@el.append(@listingTpl(item))
 
 listingModel = {
-	getItems: (term, page, cb) ->
+	getItems: (term, site, page, cb) ->
 		$.ajax({
 			url: 'listing/search',
 			type: 'post',
-			data: {searchTerm: term},
+			data: {searchTerm: term, baseSite: site},
 			success: cb
 		})
 }
@@ -61,7 +61,7 @@ $ ->
 		e.preventDefault();
 		currentListingView.markAsObsolete()
 
-		listingModel.getItems($('header input').val(), 0, (data) ->
+		listingModel.getItems($('header input').val(), $('header select').val(), 0, (data) ->
 			console.log(data)
 			currentListingView = new ListingView(data)
 		)
