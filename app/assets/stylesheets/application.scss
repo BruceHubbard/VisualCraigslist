@@ -39,6 +39,8 @@ header {
 	.listing { 
 		display: inline-block; 
 		position: relative;
+		min-width: 245px;
+		text-align: center;
 
 		a {
 			display: inline-block;
