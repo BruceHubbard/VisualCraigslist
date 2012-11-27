@@ -56,6 +56,9 @@ class ListingView
 		
 		listingModel.getItems(@term, @city, @category, @page, (data) ->
 			me.spinner.detach()
+			$('header button').show();
+			$('header .processing').hide();
+
 
 			if(cb)
 				cb()
@@ -123,6 +126,9 @@ $ ->
 
 	$('header form').submit((e) ->
 		e.preventDefault();
+		$('header button').hide();
+		$('header .processing').show();
+
 		if currentListingView
 			currentListingView.markAsObsolete()
 

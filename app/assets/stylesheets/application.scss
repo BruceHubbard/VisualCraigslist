@@ -20,6 +20,8 @@ header {
 		.btn { margin-top: 0;}
 		select { margin-bottom: 0;}
 	}
+
+	.processing { display: none; }
 }
 
 .listings * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
