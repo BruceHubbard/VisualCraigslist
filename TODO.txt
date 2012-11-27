@@ -1,8 +1,8 @@
-- Categories
+X Categories
 X Infinite Scroll
 X Image swapper
 - Only show thumbs if #pics > 1
 - button spinner on submit
 X open listing in new window
-- include price
+X include price
 - what happens at the end?

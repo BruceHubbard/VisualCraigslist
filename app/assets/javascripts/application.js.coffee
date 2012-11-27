@@ -49,13 +49,18 @@ class ListingView
 		
 		listingModel.getItems(@term, @city, @category, @page, (data) ->
 			me.spinner.detach()
-			me.addItems(data)
-			me.el.append(me.spinner)
-			me.paging = false
-			me.page += 1
+
 			if(cb)
 				cb()
-			me.checkForNewPage()
+
+			if(data && data.length > 0) 
+				me.addItems(data)
+				me.paging = false
+				me.page += 1
+				me.el.append(me.spinner)
+				me.checkForNewPage()
+			else
+				me.el.append("<h3>No More Listings</h3>")
 		)
 
 
