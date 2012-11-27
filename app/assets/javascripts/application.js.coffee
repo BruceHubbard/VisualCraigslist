@@ -67,7 +67,7 @@ listingModel = {
 }
 
 $ ->
-	currentListingView = new ListingView()
+	currentListingView = null
 
 	$('header .search').click(() ->
 		$(@).closest('form').submit()
@@ -75,7 +75,8 @@ $ ->
 
 	$('header form').submit((e) ->
 		e.preventDefault();
-		currentListingView.markAsObsolete()
+		if currentListingView
+			currentListingView.markAsObsolete()
 
 		listingModel.getItems($('header input').val(), $('header select').val(), 0, (data) ->
 			console.log(data)
