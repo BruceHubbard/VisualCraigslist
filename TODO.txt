@@ -2,7 +2,7 @@ X Categories
 X Infinite Scroll
 X Image swapper
 X Only show thumbs if #pics > 1
-- button spinner on submit
+X button spinner on submit
 X open listing in new window
 X include price
 X what happens at the end?
