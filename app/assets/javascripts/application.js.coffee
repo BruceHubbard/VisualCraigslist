@@ -46,6 +46,10 @@ class ListingView
 			listing.find('a img').attr('src', new_url)
 		)
 
+		@el.on('scroll', () ->
+			console.log("scrolling")
+		)
+
 	addItems: (items) ->
 		if items
 			for item in items
