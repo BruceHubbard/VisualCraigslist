@@ -11,7 +11,7 @@ class Listing
 	def self.search (search_term, site, page_num)
 		listings = []
 
-		skip = page_num.to_i * @@page_size + 1
+		skip = page_num.to_i * @@page_size
 
 		url = URI::encode(@@search_url % [site, search_term, skip])
 		puts "URL: #{url}"

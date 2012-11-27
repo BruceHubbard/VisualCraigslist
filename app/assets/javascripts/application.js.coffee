@@ -25,8 +25,9 @@ class ListingView
 	constructor: (items) ->
 		@page = 0
 		@listingTpl = Handlebars.compile($("#listingTpl").html())
+		@paging = false
 
-
+		@spinner = $('<div class="spinner"><img src="assets/loading_animation.gif"/></div>')
 		@el = $("<div class='listings'></div>")
 
 		$('section.body').html(@el)
@@ -40,6 +41,7 @@ class ListingView
 		#put modal on top with processing wheel
 
 	addEvents: () ->
+		me = @
 		@el.on('mouseover', '.info .thumbs img', () ->
 			new_url = $(@).attr('src').replace("/thumb", "")
 			listing = $(@).closest('.listing')
@@ -47,24 +49,42 @@ class ListingView
 		)
 
 		@el.on('scroll', () ->
-			console.log("scrolling")
+			if(isScrolledIntoView(me.spinner) && !me.paging)
+				me.paging = true
+				me.page += 1
+				listingModel.getItems($('header input').val(), $('header select').val(), me.page, (data) ->
+					me.spinner.detach()
+					me.addItems(data)
+					me.el.append(me.spinner)
+					me.paging = false
+				)
 		)
 
 	addItems: (items) ->
 		if items
 			for item in items
 				@el.append(@listingTpl(item))
+		@el.append(@spinner)
 
 listingModel = {
 	getItems: (term, site, page, cb) ->
 		$.ajax({
 			url: 'listing/search',
 			type: 'post',
-			data: {searchTerm: term, baseSite: site, pageNum: 0},
+			data: {searchTerm: term, baseSite: site, pageNum: page},
 			success: cb
 		})
 		#cb(mockItems)
 }
+
+isScrolledIntoView = (elem) ->
+    docViewTop = $(window).scrollTop();
+    docViewBottom = docViewTop + $(window).height();
+
+    elemTop = $(elem).offset().top;
+    elemBottom = elemTop + $(elem).height();
+
+    return elemTop <= docViewBottom
 
 $ ->
 	currentListingView = null
