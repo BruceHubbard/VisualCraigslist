@@ -46,13 +46,13 @@ class ListingView
 	nextPage: (cb) ->
 		me = @
 		@paging = true
-		@page += 1
 		
 		listingModel.getItems(@term, @city, @category, @page, (data) ->
 			me.spinner.detach()
 			me.addItems(data)
 			me.el.append(me.spinner)
 			me.paging = false
+			me.page += 1
 			if(cb)
 				cb()
 			me.checkForNewPage()

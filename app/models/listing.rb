@@ -4,16 +4,16 @@ require 'open-uri'
 class Listing
 	attr_accessor :date, :title, :link, :pics
 
-	@@search_url = "http://%s.craigslist.org/search/?areaID=35&subAreaID=&query=%s&catAbb=sss&s=%s"
+	@@search_url = "http://%s.craigslist.org/search/%s?areaID=35&subAreaID=&query=%s&s=%s"
 	@@image_base = "http://images.craigslist.org/"
 	@@page_size = 5
 
-	def self.search (search_term, site, page_num)
+	def self.search (search_term, site, category, page_num)
 		listings = []
 
 		skip = page_num.to_i * @@page_size
 
-		url = URI::encode(@@search_url % [site, search_term, skip])
+		url = URI::encode(@@search_url % [site, category, search_term, skip])
 		puts "URL: #{url}"
 
 	    doc = Nokogiri::HTML.parse(open(url))
