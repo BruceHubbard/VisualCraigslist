@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 
 class Listing
-	attr_accessor :date, :title, :link, :pics
+	attr_accessor :date, :title, :link, :price, :pics
 
 	@@search_url = "http://%s.craigslist.org/search/%s?areaID=35&subAreaID=&query=%s&s=%s"
 	@@image_base = "http://images.craigslist.org/"
@@ -23,6 +23,8 @@ class Listing
 	    	listing.date = listing_html.css('.itemdate')[0].content.strip
 	    	listing.title = listing_html.css('a')[0].content.strip
 	    	listing.link = listing_html.css('a')[0]["href"]
+	    	listing.price = listing_html.css('.itempp')[0].content.strip
+	    	listing.price = "??" if listing.price.to_s == ''
 	    	listing.pics = pics(listing.link)
 
 	    	#puts listing.inspect
