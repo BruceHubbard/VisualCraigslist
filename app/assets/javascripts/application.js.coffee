@@ -23,6 +23,7 @@ Handlebars.registerHelper('thumbnail', (context, block) ->
 
 class ListingView
 	constructor: (term, city) ->
+		me = @
 		@term = term
 		@city = city
 
@@ -30,7 +31,7 @@ class ListingView
 		@listingTpl = Handlebars.compile($("#listingTpl").html())
 		@paging = false
 
-		@spinner = $('<div class="spinner"><img src="assets/loading_animation.gif"/></div>')
+		spinner = @spinner = $('<div class="spinner"><img src="assets/loading_animation.gif"/></div>')
 		el = @el = $("<div class='listings'></div>")
 
 		$('section.body').html(@el)
@@ -53,6 +54,7 @@ class ListingView
 			me.paging = false
 			if(cb)
 				cb()
+			me.checkForNewPage()
 		)
 
 
@@ -65,9 +67,13 @@ class ListingView
 		)
 
 		@el.on('scroll', () ->
-			if(isScrolledIntoView(me.spinner) && !me.paging)
-				me.nextPage()
+			me.checkForNewPage()
 		)
+
+	checkForNewPage: () ->
+		me = @
+		if(isScrolledIntoView(me.spinner) && !me.paging)
+			me.nextPage()
 
 	addItems: (items) ->
 		if items

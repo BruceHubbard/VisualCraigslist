@@ -6,7 +6,7 @@ class Listing
 
 	@@search_url = "http://%s.craigslist.org/search/?areaID=35&subAreaID=&query=%s&catAbb=sss&s=%s"
 	@@image_base = "http://images.craigslist.org/"
-	@@page_size = 20
+	@@page_size = 5
 
 	def self.search (search_term, site, page_num)
 		listings = []
