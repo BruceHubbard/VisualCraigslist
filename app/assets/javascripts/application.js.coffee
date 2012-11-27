@@ -22,23 +22,39 @@ Handlebars.registerHelper('thumbnail', (context, block) ->
 )
 
 class ListingView
-	constructor: (items) ->
+	constructor: (term, city) ->
+		@term = term
+		@city = city
+
 		@page = 0
 		@listingTpl = Handlebars.compile($("#listingTpl").html())
 		@paging = false
 
 		@spinner = $('<div class="spinner"><img src="assets/loading_animation.gif"/></div>')
-		@el = $("<div class='listings'></div>")
+		el = @el = $("<div class='listings'></div>")
 
 		$('section.body').html(@el)
 
-		@addItems(items)
 		@addEvents()
-
-		@el.slideDown()
+		@nextPage(() -> el.slideDown())
 
 	markAsObsolete: () ->
 		#put modal on top with processing wheel
+
+	nextPage: (cb) ->
+		me = @
+		@paging = true
+		@page += 1
+		
+		listingModel.getItems(@term, @city, @page, (data) ->
+			me.spinner.detach()
+			me.addItems(data)
+			me.el.append(me.spinner)
+			me.paging = false
+			if(cb)
+				cb()
+		)
+
 
 	addEvents: () ->
 		me = @
@@ -50,14 +66,7 @@ class ListingView
 
 		@el.on('scroll', () ->
 			if(isScrolledIntoView(me.spinner) && !me.paging)
-				me.paging = true
-				me.page += 1
-				listingModel.getItems($('header input').val(), $('header select').val(), me.page, (data) ->
-					me.spinner.detach()
-					me.addItems(data)
-					me.el.append(me.spinner)
-					me.paging = false
-				)
+				me.nextPage()
 		)
 
 	addItems: (items) ->
@@ -98,10 +107,7 @@ $ ->
 		if currentListingView
 			currentListingView.markAsObsolete()
 
-		listingModel.getItems($('header input').val(), $('header select').val(), 0, (data) ->
-			console.log(data)
-			currentListingView = new ListingView(data)
-		)
+		currentListingView = new ListingView($('header input').val(), $('header select').val())
 	)
 
 
