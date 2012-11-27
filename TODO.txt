@@ -1,3 +1,5 @@
 - Categories
 - Infinite Scroll
-- Image swapper
+X Image swapper
+- Only show thumbs if #pics > 1
+- button spinner on submit

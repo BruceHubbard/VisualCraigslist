@@ -45,13 +45,13 @@ class ListingView
 
 listingModel = {
 	getItems: (term, site, page, cb) ->
-		#$.ajax({
-		#	url: 'listing/search',
-		#	type: 'post',
-		#	data: {searchTerm: term, baseSite: site},
-		#	success: cb
-		#})
-		cb(mockItems)
+		$.ajax({
+			url: 'listing/search',
+			type: 'post',
+			data: {searchTerm: term, baseSite: site, pageNum: 0},
+			success: cb
+		})
+		#cb(mockItems)
 }
 
 $ ->
