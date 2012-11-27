@@ -22,26 +22,34 @@ Handlebars.registerHelper('thumbnail', (context, block) ->
 )
 
 class ListingView
-    constructor: (items) ->
-    	@page = 0
-   		@listingTpl = Handlebars.compile($("#listingTpl").html())
+	constructor: (items) ->
+		@page = 0
+		@listingTpl = Handlebars.compile($("#listingTpl").html())
 
 
-    	@el = $("<div class='listings'></div>")
+		@el = $("<div class='listings'></div>")
 
-    	$('section.body').html(@el)
+		$('section.body').html(@el)
 
-    	@addItems(items)
+		@addItems(items)
+		@addEvents()
 
-    	@el.slideDown()
+		@el.slideDown()
 
-    markAsObsolete: () ->
-    	#put modal on top with processing wheel
+	markAsObsolete: () ->
+		#put modal on top with processing wheel
 
-    addItems: (items) ->
-    	if items
-    		for item in items
-    			@el.append(@listingTpl(item))
+	addEvents: () ->
+		@el.on('mouseover', '.info .thumbs img', () ->
+			new_url = $(@).attr('src').replace("/thumb", "")
+			listing = $(@).closest('.listing')
+			listing.find('a img').attr('src', new_url)
+		)
+
+	addItems: (items) ->
+		if items
+			for item in items
+				@el.append(@listingTpl(item))
 
 listingModel = {
 	getItems: (term, site, page, cb) ->
@@ -69,12 +77,6 @@ $ ->
 			console.log(data)
 			currentListingView = new ListingView(data)
 		)
-	)
-
-	$('section.body').on('mouseover', '.listing .info .thumbs img', () ->
-		new_url = $(@).attr('src').replace("/thumb", "")
-		listing = $(@).closest('.listing')
-		listing.find('a img').attr('src', new_url)
 	)
 
 
