@@ -22,10 +22,11 @@ Handlebars.registerHelper('thumbnail', (context, block) ->
 )
 
 class ListingView
-	constructor: (term, city) ->
+	constructor: (term, city, category) ->
 		me = @
 		@term = term
 		@city = city
+		@category = category
 
 		@page = 0
 		@listingTpl = Handlebars.compile($("#listingTpl").html())
@@ -47,7 +48,7 @@ class ListingView
 		@paging = true
 		@page += 1
 		
-		listingModel.getItems(@term, @city, @page, (data) ->
+		listingModel.getItems(@term, @city, @category, @page, (data) ->
 			me.spinner.detach()
 			me.addItems(data)
 			me.el.append(me.spinner)
@@ -82,11 +83,11 @@ class ListingView
 		@el.append(@spinner)
 
 listingModel = {
-	getItems: (term, site, page, cb) ->
+	getItems: (term, site, category, page, cb) ->
 		$.ajax({
 			url: 'listing/search',
 			type: 'post',
-			data: {searchTerm: term, baseSite: site, pageNum: page},
+			data: {searchTerm: term, baseSite: site, category: category, pageNum: page},
 			success: cb
 		})
 		#cb(mockItems)
@@ -113,7 +114,7 @@ $ ->
 		if currentListingView
 			currentListingView.markAsObsolete()
 
-		currentListingView = new ListingView($('header input').val(), $('header select').val())
+		currentListingView = new ListingView($('header input').val(), $('header select[name="site"]').val(), $('header select[name="category"]').val())
 	)
 
 
