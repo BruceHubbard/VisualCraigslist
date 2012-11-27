@@ -53,11 +53,13 @@
 	  	<div class="info-block">
 	  		<div class="info">
 		  		<div class="title">{{date}} - {{title}} - {{price}}</div>
+	  		{{#ifMoreThanOne pics}}
 		  		<div class="thumbs">
 		  		{{#pics}}
 		  			<img src="{{thumbnail .}}"/>
 		  		{{/pics}}
 		  		</div>
+		  	{{/ifMoreThanOne}}
 	  		</div>
 	  	</div>
 	</div>

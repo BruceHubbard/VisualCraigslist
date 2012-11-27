@@ -1,8 +1,9 @@
 X Categories
 X Infinite Scroll
 X Image swapper
-- Only show thumbs if #pics > 1
+X Only show thumbs if #pics > 1
 - button spinner on submit
 X open listing in new window
 X include price
-- what happens at the end?
+X what happens at the end?
+- Push to heroku
