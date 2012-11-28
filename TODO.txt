@@ -13,3 +13,4 @@ X Push to heroku
 - Add all categories
 - Add intro page
 - Seperate title and price/date and make price bigger
+- ERROR HANDLING!!!!
