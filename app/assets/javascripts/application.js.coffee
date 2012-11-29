@@ -103,7 +103,10 @@ listingModel = {
 			url: 'listing/search',
 			type: 'post',
 			data: {searchTerm: term, baseSite: site, category: category, pageNum: page},
-			success: cb
+			success: cb,
+			error: () ->
+				alert("Could not retrieve items, most likely Craigslist has temporarily banned my app, try again later")
+				cb()
 		})
 		#cb(mockItems)
 }

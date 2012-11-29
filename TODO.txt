@@ -10,7 +10,7 @@ X Push to heroku
 - Cache listing detail so we don't hit CL as much
 - Add all cities: OH - Dayton
 - Maybe add state dropdown?
-- Add all categories
-- Add intro page
+X Add all categories
+X Add intro page
 - Seperate title and price/date and make price bigger
-- ERROR HANDLING!!!!
+X ERROR HANDLING!!!!
