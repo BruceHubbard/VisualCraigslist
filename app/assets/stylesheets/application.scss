@@ -24,6 +24,27 @@ header {
 	.processing { display: none; }
 }
 
+.instructions {
+	.step {
+		display: inline-block;
+		padding: 50px 5px 5px 5px;
+		background-image: url('img_up_arrow.gif');
+		background-repeat: no-repeat;
+		background-position: 10% 0;
+		vertical-align: top;
+		font-size: 1.3em;
+	}
+
+	.step1 { 
+		margin-left: 211px;
+		width: 215px;
+	}
+
+	.step2 { width: 210px; }
+	.step3 { width: 264px; }
+	.step4 { width: 180px; }
+}
+
 .listings * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 .listings {
