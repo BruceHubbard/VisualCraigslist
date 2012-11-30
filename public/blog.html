@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="/assets/jquery.xdomainajax.js"></script>
+		<script>
+$(document).ready(function() {
+	var starWarsSearchURL = 'http://cincinnati.craigslist.org/search/?areaID=35&subAreaID=&query=star+wars&catAbb=sss';
+
+	function getPage(url, cb) {
+		$.ajax({
+		  type: 'get',
+		  url: url,
+		  success: function(response) {
+		  	cb($(response.responseText));
+		  }
+		});					
+	}
+
+	getPage(starWarsSearchURL, function(page) {
+		var listings = [];
+
+		//.row is the selector to get each listing's parent object
+		$.each(page.find('.row'), function(i, elem) {
+			listings.push({
+				title: $(elem).find('> a').text(),
+				date: $(elem).find('.itemdate').text(),
+				link: $(elem).find('> a').attr('href'),
+				price: $(elem).find('.itempp').text()
+			});
+		});
+
+		console.log(listings);
+	});
+});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

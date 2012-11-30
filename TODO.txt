@@ -14,3 +14,5 @@ X Add all categories
 X Add intro page
 - Seperate title and price/date and make price bigger
 X ERROR HANDLING!!!!
+- Add blurb about this is how I want to search
+- localstorage for last search
