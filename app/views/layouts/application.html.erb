@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<header>
@@ -12,7 +13,6 @@
 	    	<div class="navbar-inner">
 	        	<div class="container">
 	            	<a class="brand" href="#">Visual Craigslist</a>
-					<div class="nav-collapse collapse navbar-inverse-collapse">
 						<form class="navbar-search pull-left" action="">
 							<select name="site">
 								<option value="auburn">AL - auburn</option>
@@ -474,7 +474,6 @@
 							<button type="button" class="btn btn-primary search">Search</button>
 							<img class="processing" src="assets/loading_animation.gif"/>
 						</form>
-					</div><!-- /.nav-collapse -->
 				</div>
 			</div><!-- /navbar-inner -->
 		</div>
