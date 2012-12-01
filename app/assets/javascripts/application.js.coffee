@@ -29,11 +29,11 @@ Handlebars.registerHelper('ifMoreThanOne', (array, block) ->
 )
 
 class ListingView
-	constructor: (term, city, category) ->
+	constructor: (searchType) ->
 		me = @
-		@term = term
-		@city = city
-		@category = category
+		@term = searchType.searchTerm
+		@city = searchType.city
+		@category = searchType.category
 
 		@page = 0
 		@listingTpl = Handlebars.compile($("#listingTpl").html())
@@ -123,6 +123,12 @@ isScrolledIntoView = (elem) ->
 $ ->
 	currentListingView = null
 
+	if(sessionStorage && lastSearch = sessionStorage.getItem("lastSearch"))
+		lastSearch = JSON.parse(lastSearch)
+		$('header input').val(lastSearch.searchTerm)
+		$('header select[name="site"]').val(lastSearch.city)
+		$('header select[name="category"]').val(lastSearch.category)
+
 	$('header .search').click(() ->
 		$(@).closest('form').submit()
 	);
@@ -132,10 +138,19 @@ $ ->
 		$('header button').hide();
 		$('header .processing').show();
 
+		searchType = {
+			searchTerm: $('header input').val()
+			city: $('header select[name="site"]').val()
+			category: $('header select[name="category"]').val()
+		}
+
 		if currentListingView
 			currentListingView.markAsObsolete()
 
-		currentListingView = new ListingView($('header input').val(), $('header select[name="site"]').val(), $('header select[name="category"]').val())
+		if sessionStorage
+			sessionStorage.setItem("lastSearch", JSON.stringify(searchType))
+
+		currentListingView = new ListingView(searchType)
 	)
 
 
