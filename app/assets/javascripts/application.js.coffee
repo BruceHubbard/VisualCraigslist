@@ -57,8 +57,9 @@ class ListingView
 		
 		listingModel.getItems(@term, @city, @category, @page, (data) ->
 			me.spinner.detach()
-			$('header button').show();
-			$('header .processing').hide();
+			$('.collapse').collapse('hide')
+			$('header button').show()
+			$('header .processing').hide()
 
 
 			if(cb)

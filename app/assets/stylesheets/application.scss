@@ -33,6 +33,20 @@ header {
 	.processing { display: none; }
 }
 
+@media only screen and (max-width: $collapse) {
+	header .nav-collapse {
+		z-index: 4000;
+		background-color: #0E0E0E;
+		width: 100%;
+		top: -5px;
+		left: -5px;
+	}
+}
+
+@media only screen and (max-width: $collapse) {
+	footer { display: none !important; }
+}
+
 .body .alert { margin-top: 30px; }
 
 .instructions {
