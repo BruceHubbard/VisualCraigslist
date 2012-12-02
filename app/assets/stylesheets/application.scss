@@ -14,11 +14,20 @@
  *= require bootstrap-responsive.min
 */
 
+$collapse: 940px;
+
 header {
 	.navbar-search {
 		input { width: 250px; }
 		.btn { margin-top: 0;}
 		select { margin-bottom: 0;}
+
+		@media only screen and (max-width: $collapse) {
+			select, input, .btn {
+				display: block;
+				margin: 5px;
+			}
+		}
 	}
 
 	.processing { display: none; }
