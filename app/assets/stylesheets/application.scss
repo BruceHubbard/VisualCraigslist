@@ -84,6 +84,11 @@ header {
 	overflow-x: hidden;
 	padding-bottom: 50px;
 
+	@media only screen and (max-width: $collapse) {
+		top: 52px;
+		bottom: 0;
+	}
+
 	.listing { 
 		display: inline-block; 
 		position: relative;
