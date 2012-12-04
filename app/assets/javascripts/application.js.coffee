@@ -125,7 +125,7 @@ isScrolledIntoView = (elem) ->
 $ ->
 	currentListingView = null
 
-	if(sessionStorage && lastSearch = sessionStorage.getItem("lastSearch"))
+	if(localStorage && lastSearch = localStorage.getItem("lastSearch"))
 		lastSearch = JSON.parse(lastSearch)
 		$('header input').val(lastSearch.searchTerm)
 		$('header select[name="site"]').val(lastSearch.city)
@@ -149,8 +149,8 @@ $ ->
 		if currentListingView
 			currentListingView.markAsObsolete()
 
-		if sessionStorage
-			sessionStorage.setItem("lastSearch", JSON.stringify(searchType))
+		if localStorage
+			localStorage.setItem("lastSearch", JSON.stringify(searchType))
 
 		currentListingView = new ListingView(searchType)
 	)
