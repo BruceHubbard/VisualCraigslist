@@ -137,16 +137,7 @@ header {
 			z-index: 5000;
 
 			.title { 
-				width: 75%;
 				font-size: 12px; 
-				display: inline-block;
-				vertical-align: top;
-				text-align: left;
-			}
-
-			.price {
-				width: 20%;
-				font-size: 24px;
 				display: inline-block;
 				vertical-align: top;
 				text-align: left;
@@ -161,7 +152,26 @@ header {
 				top: 0;
 				z-index: 5000;
 			}
-		}	
+		}
+
+		.price {
+			font-size: 24px;
+			text-align: right;
+			position: absolute;
+			bottom: 10px;
+			right: 6px;
+			color: white;
+			padding: 2px;
+			/* Fallback for web browsers that doesn't support RGBa */
+			background: rgb(0, 0, 0);
+			/* RGBa with 0.6 opacity */
+			background: rgba(0, 0, 0, 0.5);
+
+			line-height: 1.1em;
+
+			span { vertical-align: middle; }
+		}
+	
 	}
 
 	.listing:hover {
