@@ -14,11 +14,13 @@
  *= require bootstrap-responsive.min
 */
 
-$collapse: 940px;
+$collapse: 980px;
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 header {
 	.navbar-search {
-		input { width: 250px; }
+		input { height: 30px;}
 		.btn { margin-top: 0;}
 		select { margin-bottom: 0;}
 
@@ -32,6 +34,19 @@ header {
 
 	.processing { display: none; }
 }
+
+.step1 { width: 215px; }
+.step2 { width: 210px; }
+.step3 { 
+	width: 264px; 
+
+	@media only screen and (max-width: 1200px) {
+		width: 200px;
+	}
+
+}
+.step4 { width: 145px; }
+
 
 @media only screen and (max-width: $collapse) {
 	header .nav-collapse {
@@ -60,17 +75,20 @@ header {
 		font-size: 1.3em;
 	}
 
-	.step1 { 
-		margin-left: 155px;
-		width: 215px;
+	.step0 { display: none;}
+
+	.step1 { margin-left: 130px; }
+
+	@media only screen and (max-width: $collapse) {
+		.step {
+			display: list-item;
+			margin: 0;
+			background-image: none;
+			padding: 5px 0;
+			width: auto;
+		}
 	}
-
-	.step2 { width: 210px; }
-	.step3 { width: 264px; }
-	.step4 { width: 180px; }
 }
-
-.listings * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 .listings {
 	display: none;
