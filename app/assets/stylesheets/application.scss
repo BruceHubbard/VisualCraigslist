@@ -56,10 +56,16 @@ header {
 		top: -5px;
 		left: -5px;
 	}
+
+	footer { display: none !important; }
 }
 
-@media only screen and (max-width: $collapse) {
-	footer { display: none !important; }
+@media only screen and (max-width: 767px) {
+	header { padding: 0 20px; }
+
+	body { padding: 0 !important; }
+
+	.body .container { padding: 20px; }
 }
 
 .body .alert { margin-top: 30px; }
@@ -98,7 +104,7 @@ header {
 	padding-bottom: 80px;
 
 	@media only screen and (max-width: $collapse) {
-		margin-top: 0;
+		margin-top: -20px;
 	}
 
 	.listing { 
