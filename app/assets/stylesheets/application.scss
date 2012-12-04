@@ -102,6 +102,7 @@ header {
 	width: 100%;
 	margin-top: 0;
 	padding-bottom: 80px;
+	text-align: center;
 
 	@media only screen and (max-width: $collapse) {
 		margin-top: -20px;
@@ -112,6 +113,7 @@ header {
 		position: relative;
 		min-width: 245px;
 		text-align: center;
+		padding: 5px;
 
 		a {
 			display: inline-block;
