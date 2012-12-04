@@ -93,18 +93,12 @@ header {
 .listings {
 	display: none;
 	background-color: grey;
-	position: fixed;
-	top: 41px;
-	bottom: 41px;
-	left: 0;
-	right: 0;
-	overflow-y: auto;
-	overflow-x: hidden;
-	padding-bottom: 50px;
+	width: 100%;
+	margin-top: 0;
+	padding-bottom: 80px;
 
 	@media only screen and (max-width: $collapse) {
-		top: 52px;
-		bottom: 0;
+		margin-top: 0;
 	}
 
 	.listing { 
@@ -165,6 +159,7 @@ header {
 
 	.spinner {
 		width: 100%;
+		margin: 10px 0;
 		text-align: center;
 	}
 

@@ -84,7 +84,7 @@ class ListingView
 			listing.find('a img').attr('src', new_url)
 		)
 
-		@el.on('scroll', () ->
+		$(window).on('scroll', () ->
 			me.checkForNewPage()
 		)
 
