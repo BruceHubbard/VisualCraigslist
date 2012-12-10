@@ -14,8 +14,8 @@ If you haven't used Rails before then you might not know the app structure. Basi
 There really isn't much other than the controllers and the model:
 
 * {app/controllers/home_controller}[https://github.com/BruceHubbard/VisualCraigslist/blob/master/app/controllers/home_controller.rb] - Loads the initial page
-* app/controllers/listing_controller - AJAX API for loading listings
-* app/models/listing.rb - Handles screen scraping of CL
+* {app/controllers/listing_controller}[https://github.com/BruceHubbard/VisualCraigslist/blob/master/app/controllers/listing_controller.rb] - AJAX API for loading listings
+* {app/models/listing.rb}[https://github.com/BruceHubbard/VisualCraigslist/blob/master/app/models/listing.rb] - Handles screen scraping of CL
 
 === Client Side Code
 
@@ -27,9 +27,9 @@ I used the following open source libs:
 
 All of the JS (well actually Coffeescript) is in one file:
 
-* app/assets/javascripts/application.js.coffee
+* {app/assets/javascripts/application.js.coffee}[https://github.com/BruceHubbard/VisualCraigslist/blob/master/app/assets/javascripts/application.js.coffee]
 
 Styles are here: 
 
-* app/assets/stylesheets/application.scss
+* {app/assets/stylesheets/application.scss}[https://github.com/BruceHubbard/VisualCraigslist/blob/master/app/assets/stylesheets/application.scss]
 
