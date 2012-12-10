@@ -5,7 +5,6 @@ class Listing
 	attr_accessor :date, :title, :link, :price, :pics
 
 	@@search_url = "http://%s.craigslist.org/search/%s?areaID=35&subAreaID=&query=%s&s=%s"
-	@@image_base = "http://images.craigslist.org/"
 	@@page_size = 10
 
 	def self.search (search_term, site, category, page_num)
@@ -26,8 +25,6 @@ class Listing
 	    	listing.price = listing_html.css('.itempp')[0].content.strip
 	    	listing.price = "??" if listing.price.to_s == ''
 	    	listing.pics = pics(listing.link)
-
-	    	#puts listing.inspect
 
 	    	listings << listing
 	    end

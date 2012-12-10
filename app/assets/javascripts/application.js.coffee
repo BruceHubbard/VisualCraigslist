@@ -61,7 +61,6 @@ class ListingView
 			$('header button').css('display', 'inline-block');
 			$('header .processing').hide()
 
-
 			if(cb)
 				cb()
 
