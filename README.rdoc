@@ -17,5 +17,19 @@ There really isn't much other than the controllers and the model:
 * app/controllers/listing_controller - AJAX API for loading listings
 * app/models/listing.rb - Handles screen scraping of CL
 
+=== Client Side Code
 
+I used the following open source libs:
+
+* JQuery
+* Twitter Bootstrap
+* Handlebars
+
+All of the JS (well actually Coffeescript) is in one file:
+
+* app/assets/javascripts/application.js.coffee
+
+Styles are here: 
+
+* app/assets/stylesheets/application.scss
 
