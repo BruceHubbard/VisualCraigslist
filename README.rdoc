@@ -13,7 +13,7 @@ If you haven't used Rails before then you might not know the app structure. Basi
 === Server Side Code
 There really isn't much other than the controllers and the model:
 
-* app/controllers/home_controller - Loads the initial page
+* [app/controllers/home_controller](https://github.com/BruceHubbard/VisualCraigslist/blob/master/app/controllers/home_controller.rb) - Loads the initial page
 * app/controllers/listing_controller - AJAX API for loading listings
 * app/models/listing.rb - Handles screen scraping of CL
 
