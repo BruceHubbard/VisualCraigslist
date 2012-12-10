@@ -1,6 +1,6 @@
 == What Is This Project?
 
-This represents how'd I would like to be able to search Craigslist....visually! Makes much more sense for most of the searches I do (furniture, etc.).  You brain can scan through a set of images much faster than it can process text.
+This represents how I would like to be able to search Craigslist....visually! Makes much more sense for most of the searches I do (furniture, etc.).  You brain can scan through a set of images much faster than it can process text.
 
 == Can I See It?
 
